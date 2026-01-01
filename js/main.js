@@ -1,26 +1,7 @@
 // Learn With RS - Main JavaScript
 
-// Mobile Menu Toggle
+// FAQ Accordion
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-        });
-    }
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-        });
-    });
-    
     // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
@@ -67,16 +48,27 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             if (isValid) {
-                // Show success message
-                showFormSuccess(form);
-                
-                // In a real implementation, you would send the form data to a server
-                // For now, we'll log it and show a success message
+                const formId = form.id;
                 const formData = new FormData(form);
-                console.log('Form submitted:', Object.fromEntries(formData));
                 
-                // Optionally redirect to WhatsApp or show confirmation
-                // window.location.href = 'https://wa.me/YOUR_NUMBER?text=' + encodeURIComponent('I registered for Learn With RS');
+                // Handle different forms
+                if (formId === 'contactForm') {
+                    // Build WhatsApp message for contact form
+                    let whatsappMessage = buildContactWhatsAppMessage(formData);
+                    openWhatsApp(whatsappMessage);
+                    showFormSuccess(form, 'WhatsApp will open with your message. Please click send to complete your submission.');
+                } else if (formId === 'partnershipForm') {
+                    // Build WhatsApp message for partnership form
+                    let whatsappMessage = buildPartnershipWhatsAppMessage(formData);
+                    openWhatsApp(whatsappMessage);
+                    showFormSuccess(form, 'WhatsApp will open with your message. Please click send to complete your submission.');
+                } else {
+                    // For any other forms, just show success
+                    showFormSuccess(form);
+                }
+                
+                // Log for debugging
+                console.log('Form submitted:', Object.fromEntries(formData));
             }
         });
     });
@@ -100,7 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Show form success message
-function showFormSuccess(form) {
+function showFormSuccess(form, customMessage = null) {
+    // Remove any existing success message
+    const existingMessage = form.querySelector('.form-success');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success';
     successMessage.style.cssText = `
@@ -111,20 +109,83 @@ function showFormSuccess(form) {
         margin-top: 1rem;
         text-align: center;
         font-weight: 500;
+        animation: slideDown 0.3s ease-out;
     `;
-    successMessage.textContent = 'Thank you! Your form has been submitted successfully. We will contact you soon.';
+    successMessage.textContent = customMessage || 'Thank you! Your form has been submitted successfully. We will contact you soon.';
     
     form.appendChild(successMessage);
     
-    // Remove message after 5 seconds
+    // Remove message after 8 seconds (longer for WhatsApp instructions)
     setTimeout(() => {
-        successMessage.remove();
-    }, 5000);
+        successMessage.style.opacity = '0';
+        successMessage.style.transition = 'opacity 0.3s ease-out';
+        setTimeout(() => {
+            successMessage.remove();
+        }, 300);
+    }, customMessage ? 8000 : 5000);
     
-    // Reset form
+    // Reset form after a delay
     setTimeout(() => {
         form.reset();
     }, 1000);
+}
+
+// Build WhatsApp message for contact form
+function buildContactWhatsAppMessage(formData) {
+    let message = '💬 *New Contact Form Submission*\n\n';
+    message += `*Name:* ${formData.get('contactName') || 'Not provided'}\n`;
+    message += `*Email:* ${formData.get('contactEmail') || 'Not provided'}\n`;
+    if (formData.get('contactPhone')) {
+        message += `*Phone:* ${formData.get('contactPhone')}\n`;
+    }
+    if (formData.get('subject')) {
+        const subjectMap = {
+            'course-inquiry': 'Course Inquiry',
+            'enrollment': 'Enrollment Question',
+            'partnership': 'Partnership Opportunity',
+            'support': 'Technical Support',
+            'other': 'Other'
+        };
+        const subjectValue = formData.get('subject');
+        message += `*Subject:* ${subjectMap[subjectValue] || subjectValue}\n`;
+    }
+    message += `\n*Message:*\n${formData.get('contactMessage') || 'Not provided'}\n`;
+    message += '\n---\n';
+    message += 'Submitted from Learn With RS website';
+    
+    return message;
+}
+
+// Build WhatsApp message for partnership form
+function buildPartnershipWhatsAppMessage(formData) {
+    let message = '🤝 *New Partnership/Volunteer Form Submission*\n\n';
+    message += `*Name/Organization:* ${formData.get('partnerName') || 'Not provided'}\n`;
+    message += `*Email:* ${formData.get('partnerEmail') || 'Not provided'}\n`;
+    if (formData.get('partnerPhone')) {
+        message += `*Phone:* ${formData.get('partnerPhone')}\n`;
+    }
+    if (formData.get('interestType')) {
+        const interestMap = {
+            'partnership': 'Partnership Opportunity',
+            'volunteer': 'Volunteering',
+            'both': 'Both Partnership and Volunteering',
+            'other': 'Other'
+        };
+        const interestValue = formData.get('interestType');
+        message += `*Interest Type:* ${interestMap[interestValue] || interestValue}\n`;
+    }
+    message += `\n*Message:*\n${formData.get('partnerMessage') || 'Not provided'}\n`;
+    message += '\n---\n';
+    message += 'Submitted from Learn With RS website';
+    
+    return message;
+}
+
+// Open WhatsApp with pre-filled message
+function openWhatsApp(message) {
+    const whatsappNumber = '233545452326'; // Learn With RS WhatsApp number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 }
 
 // Add animation on scroll
