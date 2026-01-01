@@ -1,0 +1,83 @@
+[build]
+  publish = "."
+
+# Redirect .html extensions to clean URLs (301 permanent redirects for SEO)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:file.html"
+  to = "/:file"
+  status = 301
+  force = true
+
+# Rewrite clean URLs to serve .html files (200 OK - transparent rewrite)
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/courses"
+  to = "/courses.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/resources"
+  to = "/resources.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/terms-of-service.html"
+  status = 200
+
+# Course pages
+[[redirects]]
+  from = "/course-english"
+  to = "/course-english.html"
+  status = 200
+
+[[redirects]]
+  from = "/course-arabic"
+  to = "/course-arabic.html"
+  status = 200
+
+[[redirects]]
+  from = "/course-psychology"
+  to = "/course-psychology.html"
+  status = 200
+
+[[redirects]]
+  from = "/course-islamic-studies"
+  to = "/course-islamic-studies.html"
+  status = 200
+
+[[redirects]]
+  from = "/course-quran-tajweed"
+  to = "/course-quran-tajweed.html"
+  status = 200
+
