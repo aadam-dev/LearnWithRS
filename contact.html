@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Learn With RS - Get in touch with our team for questions, support, or partnership inquiries.">
+    <title>Contact Us - Learn With RS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">Learn With RS</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="register.html" class="btn-primary-nav">Register Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help and answer any questions you may have</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="contact-section-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+                <!-- Contact Information -->
+                <div>
+                    <h2>Get in Touch</h2>
+                    <p>We'd love to hear from you. Whether you have questions about our courses, need help with enrollment, or want to explore partnership opportunities, we're here to help.</p>
+                    
+                    <div style="margin-top: var(--spacing-md);">
+                        <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm);">Contact Information</h3>
+                        <div style="margin-bottom: var(--spacing-md);">
+                            <p style="margin-bottom: var(--spacing-xs);"><strong>Email:</strong></p>
+                            <p><a href="mailto:learnwithrs@gmail.com" style="color: var(--primary-teal);">learnwithrs@gmail.com</a></p>
+                        </div>
+                        <div style="margin-bottom: var(--spacing-md);">
+                            <p style="margin-bottom: var(--spacing-xs);"><strong>Phone/WhatsApp:</strong></p>
+                            <p><a href="https://wa.me/233545452326" target="_blank" rel="noopener noreferrer" style="color: var(--primary-teal);">+233 54 545 2326</a></p>
+                        </div>
+                        <div style="margin-bottom: var(--spacing-md);">
+                            <p style="margin-bottom: var(--spacing-xs);"><strong>Schedule:</strong></p>
+                            <p>We offer personalized scheduling to accommodate students from around the globe. Contact us to find a time that works for your timezone.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--spacing-md);">
+                        <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm);">Follow Us</h3>
+                        <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                            <a href="https://www.facebook.com/profile.php?id=100063974796148" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-facebook-f"></i> Facebook</a>
+                            <a href="https://www.linkedin.com/company/learn-with-rs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <div class="form-container" style="margin: 0;">
+                        <h2 style="margin-bottom: var(--spacing-md);">Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">Your Name *</label>
+                                <input type="text" id="contactName" name="contactName" required placeholder="Enter your name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address *</label>
+                                <input type="email" id="contactEmail" name="contactEmail" required placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactPhone">Phone/WhatsApp (Optional)</label>
+                                <input type="tel" id="contactPhone" name="contactPhone" placeholder="+1234567890">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="course-inquiry">Course Inquiry</option>
+                                    <option value="enrollment">Enrollment Question</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" name="contactMessage" required placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Snippet -->
+    <section class="content-section" style="background-color: var(--neutral-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">How quickly will I receive a response?</div>
+                    <div class="faq-answer">
+                        <p>We aim to respond to all inquiries within 24-48 hours during business days. For urgent matters, please contact us via WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I schedule a call to discuss my needs?</div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Mention in your message that you'd like to schedule a call, and we'll coordinate a time that works for you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer trial sessions?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer trial sessions for new students. Contact us to learn more about our trial session options.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: var(--spacing-md);">
+                <a href="faq.html" class="btn btn-outline">View All FAQs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Learn With RS</h3>
+                    <p>Where education meets purpose and growth</p>
+                    <p class="tagline">Grow Everyday</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="course-english.html">English Language</a></li>
+                        <li><a href="course-arabic.html">Arabic Language</a></li>
+                        <li><a href="course-psychology.html">Psychology</a></li>
+                        <li><a href="course-islamic-studies.html">Islamic Studies</a></li>
+                        <li><a href="course-quran-tajweed.html">Qur'an with Tajweed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="social-links">
+                        <li><a href="https://wa.me/233545452326" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100063974796148" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/learn-with-rs/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Learn With RS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
