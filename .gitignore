@@ -1,0 +1,39 @@
+# Private Documentation (not for public viewing)
+SETUP-PAYMENT-INTEGRATION.md
+SETUP-SCHEDULING-VIDEO.md
+FUTURE-IMPROVEMENTS.md
+DOCUMENTATION-SUMMARY.md
+
+# Node modules (if added later)
+node_modules/
+
+# Environment variables (contains secrets/API keys)
+.env
+.env.local
+.env.production
+
+# Netlify Functions (if added)
+.netlify/
+netlify/functions/node_modules/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+.cache/
+

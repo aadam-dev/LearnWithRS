@@ -1,20 +1,8 @@
 [build]
   publish = "."
 
-# Redirect .html extensions to clean URLs (301 permanent redirects for SEO)
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/:file.html"
-  to = "/:file"
-  status = 301
-  force = true
-
 # Rewrite clean URLs to serve .html files (200 OK - transparent rewrite)
+# These must come FIRST before redirects
 [[redirects]]
   from = "/about"
   to = "/about.html"
@@ -80,4 +68,90 @@
   from = "/course-quran-tajweed"
   to = "/course-quran-tajweed.html"
   status = 200
+
+# Redirect .html extensions to clean URLs (301 permanent redirects for SEO)
+# These come AFTER rewrites to handle old .html URLs
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/courses.html"
+  to = "/courses"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/register.html"
+  to = "/register"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq.html"
+  to = "/faq"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resources.html"
+  to = "/resources"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms-of-service.html"
+  to = "/terms-of-service"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-english.html"
+  to = "/course-english"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-arabic.html"
+  to = "/course-arabic"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-psychology.html"
+  to = "/course-psychology"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-islamic-studies.html"
+  to = "/course-islamic-studies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/course-quran-tajweed.html"
+  to = "/course-quran-tajweed"
+  status = 301
+  force = true
 
